@@ -21,6 +21,12 @@ protected:
 	virtual bool Initialize() override;
 	virtual void NativeDestruct() override;
 
+	//
+	// Callbacks for the custom delegates on MultiplayerSessionsSubsystem
+	//
+	UFUNCTION()
+	void OnCreateSession(bool bWasSuccessful);
+
 private:
 	UPROPERTY()
 	UMultiplayerSessionsSubsystem* MultiplayerSessionsSubsystem;

@@ -152,7 +152,7 @@ void AMultiplayerPluginCharacter::OpenLobby()
 {
 	if (UWorld* World = GetWorld())
 	{
-		World->ServerTravel("Game/ Maps / Lobby?listen");
+		World->ServerTravel("Game/Maps/Lobby?listen");
 	}
 }
 

@@ -65,10 +65,10 @@ JoinSessionCompleteDelegate(FOnJoinSessionCompleteDelegate::CreateUObject(this, 
 	{
 		OnlineSessionInterface = OnlineSubsystem->GetSessionInterface();
 
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Found Subsystem %s"), *OnlineSubsystem->GetSubsystemName().ToString()));
-		}
+		}*/
 	}
 }
 
@@ -222,7 +222,7 @@ void AMultiplayerPluginCharacter::OnCreateSessionComplete(FName SessionName, boo
 {
 	if (bWasSuccessful)
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("Created Session: %s"), *SessionName.ToString()));
 		}
@@ -237,7 +237,7 @@ void AMultiplayerPluginCharacter::OnCreateSessionComplete(FName SessionName, boo
 		if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString(TEXT("Failed to create session!")));
-		}
+		}*/
 	}
 }
 
@@ -256,7 +256,7 @@ void AMultiplayerPluginCharacter::OnFindSessionsComplete(bool bWasSuccessful)
 		FString MatchType;
 		Result.Session.SessionSettings.Get(FName("MatchType"), MatchType);
 		
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Cyan, FString::Printf(TEXT("Id: %s, User: %s"), *Id, *User));
 		}
@@ -272,7 +272,7 @@ void AMultiplayerPluginCharacter::OnFindSessionsComplete(bool bWasSuccessful)
 
 			const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
 			OnlineSessionInterface->JoinSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, Result);
-		}
+		}*/
 	}
 }
 
@@ -286,10 +286,10 @@ void AMultiplayerPluginCharacter::OnJoinSessionComplete(FName SessionName, EOnJo
 	FString Address;
 	if (OnlineSessionInterface->GetResolvedConnectString(NAME_GameSession, Address))
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("Connect String: %s"), *Address));
-		}
+		}*/
 
 		APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
 		if (PlayerController)
